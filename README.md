@@ -73,3 +73,9 @@ Finally, I had to secure a directory called `drafts`. The goal was to make it so
 ## What I Learned
 
 This lab was a solid crash course in managing permissions, which is a fundamental part of cybersecurity. I got hands-on experience with the `ls` and `chmod` commands and learned how to apply the principle of **least privilege**—giving users only the access they absolutely need. This skill is critical for any SOC analyst, threat hunter or pen tester.
+
+---
+
+**Author:** Joan 
+
+---
