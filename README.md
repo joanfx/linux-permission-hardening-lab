@@ -9,7 +9,7 @@ As a Security Analyst, I was tasked with auditing and hardening a project direct
 
 ---
 
-## Task 1: Initial Recon
+## Task 1: Directory Permission Audit & Gap Analysis
 
 First things first, I needed to see what I was working with. I jumped into the project directory and used a command to list all the files and their current permissions. This gave me a full breakdown of the owner, group, and other users for each file.
 
@@ -31,7 +31,7 @@ First things first, I needed to see what I was working with. I jumped into the p
 
 ---
 
-## Task 2: Fixing File Permissions
+## Task 2: Fixing Over-Permissive Write Access
 
 Next, I found a few files that were way too open. The task was to make sure no one could write to them unless they were supposed to.
 
@@ -44,7 +44,7 @@ Next, I found a few files that were way too open. The task was to make sure no o
 
 ---
 
-## Task 3: Handling Hidden Files
+## Task 3: Hardening Hidden Archive Integrity
 
 Then came a hidden file, `.project_x.txt`. It was supposed to be a read-only archive, but it had a vulnerability.
 
@@ -57,7 +57,7 @@ Then came a hidden file, `.project_x.txt`. It was supposed to be a read-only arc
 
 ---
 
-## Task 4: Locking Down a Directory
+## Task 4: Securing Sensitive Project Silos
 
 Finally, I had to secure a directory called `drafts`. The goal was to make it so only the main user could even get inside. The problem was that the group had "execute" permissions, which lets them enter the directory.
 
@@ -71,8 +71,15 @@ Finally, I had to secure a directory called `drafts`. The goal was to make it so
 ---
 
 ## What I Learned
+- Principle of Least Privilege: Successfully applied the security concept of providing users with the minimum level of access required to complete their job functions.
 
-This lab was a solid crash course in managing permissions, which is a fundamental part of cybersecurity. I got hands-on experience with the `ls` and `chmod` commands and learned how to apply the principle of **least privilege**—giving users only the access they absolutely need. This skill is critical for any SOC analyst, threat hunter or pen tester.
+- Technical Auditing: Leveraged `ls -l` to perform a manual audit of owner, group, and world permissions to identify security vulnerabilities.
+
+- Permission Hardening: Mastered the use of `chmod` to strip unnecessary write (`-w`) and execute (`-x`) bits from sensitive files and directories.
+
+- Access Control Management: Developed a systematic approach to revoking permissions from unauthorized groups while maintaining operational availability for the primary user.
+
+- Hidden File Security: Identified and secured hidden assets (e.g., `.project_x.txt`) that were vulnerable to unauthorized modification.
 
 ---
 
