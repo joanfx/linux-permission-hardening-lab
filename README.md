@@ -1,5 +1,5 @@
-# authorization-management-lab
-A detailed write-up and demonstration of a lab focused on managing authorization.
+# linux-permission-hardening-lab
+A detailed write-up and demonstration of a lab focused on managing authorization using Linux.
 
 # My First Cyber Lab: Managing Authorization
 
