@@ -12,7 +12,7 @@ As a Security Analyst, I was tasked with auditing and hardening a project direct
 
 ## Task 1: Directory Permission Audit & Gap Analysis
 
-First things first, I needed to see what I was working with. I jumped into the project directory and used a command to list all the files and their current permissions. This gave me a full breakdown of the owner, group, and other users for each file.
+Performed an initial audit of the target directory using `ls -l` to establish a security baseline. Identified several high-risk permission configurations, specifically over-permissive write access for "others" on project files and unnecessary execute bits for groups on sensitive directories.
 
 * **Command:**
     ```bash
@@ -34,7 +34,7 @@ First things first, I needed to see what I was working with. I jumped into the p
 
 ## Task 2: Fixing Over-Permissive Write Access
 
-Next, I found a few files that were way too open. The task was to make sure no one could write to them unless they were supposed to.
+Mitigated the risk of unauthorized data modification by stripping write permissions from the "others" class. Applied `chmod o-w` to enforce data integrity and ensure that only owner and group-level collaborators maintain modification rights.
 
 * **The Problem:** The `project_k.txt` file had write access for "others," which is a big security no-no.
 * **The Fix:** I used the `chmod` command to specifically remove the write permission for others on that file.
@@ -47,7 +47,7 @@ Next, I found a few files that were way too open. The task was to make sure no o
 
 ## Task 3: Hardening Hidden Archive Integrity
 
-Then came a hidden file, `.project_x.txt`. It was supposed to be a read-only archive, but it had a vulnerability.
+Discovered a hidden archive with excessive write permissions, creating a vulnerability in data persistence. Executed `chmod u-w,g-w` to convert the asset into a read-only state for all users, successfully hardening the hidden file against accidental or malicious overwrites.
 
 * **The Problem:** The user and group had write permissions on this hidden file, which wasn't supposed to happen.
 * **The Fix:** I used a different `chmod` command to remove the write permissions from both the user and the group.
@@ -60,7 +60,7 @@ Then came a hidden file, `.project_x.txt`. It was supposed to be a read-only arc
 
 ## Task 4: Securing Sensitive Project Silos
 
-Finally, I had to secure a directory called `drafts`. The goal was to make it so only the main user could even get inside. The problem was that the group had "execute" permissions, which lets them enter the directory.
+Remediation Action: Restricted directory traversal access to the primary owner to prevent unauthorized information gathering. Removed the execute bit (`-x`) from the `research_team group`, effectively "siloing" the directory and enforcing a strict Zero Trust access model for the restricted asset.
 
 * **The Problem:** The `research_team` group could access the `drafts` directory because they had execute permissions.
 * **The Fix:** I used `chmod` one more time to take away the execute permission from the group.
