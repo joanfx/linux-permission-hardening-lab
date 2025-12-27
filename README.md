@@ -1,5 +1,8 @@
 # Linux Permission Hardening & Least Privilege Audit
-A detailed write-up and demonstration of a lab focused on managing authorization using Linux.
+
+### Technical Objective: Audit and remediate Linux file permissions to enforce the Principle of Least Privilege.
+
+---
 
 ## Scenario
 
