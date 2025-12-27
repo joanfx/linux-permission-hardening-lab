@@ -1,4 +1,4 @@
-# linux-permission-hardening-lab
+# Linux Permission Hardening & Least Privilege Audit
 A detailed write-up and demonstration of a lab focused on managing authorization using Linux.
 
 # My First Cyber Lab: Managing Authorization
