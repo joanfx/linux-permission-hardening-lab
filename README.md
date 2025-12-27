@@ -5,7 +5,7 @@ A detailed write-up and demonstration of a lab focused on managing authorization
 
 ## Scenario
 
-For one of my cybersecurity labs, I had to fix file and directory permissions on a Linux system. The goal was to lock down a project folder so only the right people could access the files. This meant figuring out who had too much access and then revoking their permissions. It's a key part of keeping systems secure.
+As a Security Analyst, I was tasked with auditing and hardening a project directory on a Linux system. The objective was to eliminate "permission creep" and ensure that only authorized researchers retained the specific access required for their roles, effectively mitigating the risk of unauthorized data modification.
 
 ---
 
